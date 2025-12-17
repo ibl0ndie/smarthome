@@ -14,7 +14,6 @@ public:
     virtual void powerOff();
     virtual std::string getStatus() const;
     
-    bool detectSmoke();
     void simulateSmoke();
     bool isSmokeDetected() const;
     
