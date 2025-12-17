@@ -14,3 +14,4 @@ public:
 
 #endif // LOWPOWERSTATE_H
 
+ 

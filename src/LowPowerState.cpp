@@ -33,5 +33,5 @@ void LowPowerState::exit(MSHController* controller) {
 
 std::string LowPowerState::getName() const {
     return "Low Power";
-}
+} 
 
