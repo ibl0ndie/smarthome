@@ -30,6 +30,7 @@ MSHController::~MSHController() {
     shutdown();
 }
 
+
 MSHController& MSHController::getInstance() {
     if (!instance_) {
         instance_ = new MSHController();

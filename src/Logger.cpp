@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 
+
 Logger* Logger::instance_ = 0;
 
 Logger::Logger() {

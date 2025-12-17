@@ -1,6 +1,7 @@
 #ifndef MENUFACADE_H
 #define MENUFACADE_H
 
+
 class Device;
 
 // REQ: Facade Pattern for menu system
