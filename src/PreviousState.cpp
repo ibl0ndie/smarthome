@@ -32,4 +32,4 @@ std::string PreviousState::getName() const {
 SystemState* PreviousState::getSavedState() const {
     return savedState_;
 }
-
+ 

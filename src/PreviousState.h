@@ -21,4 +21,4 @@ private:
 };
 
 #endif // PREVIOUSSTATE_H
-
+ 
