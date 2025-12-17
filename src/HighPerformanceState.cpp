@@ -24,5 +24,5 @@ void HighPerformanceState::exit(MSHController* controller) {
 
 std::string HighPerformanceState::getName() const {
     return "High Performance";
-}
+} 
 
