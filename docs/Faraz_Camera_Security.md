@@ -19,3 +19,5 @@ The security scenario is triggered by camera motion detection and handled throug
 observer-style notification, resulting in alarm trigger, lights activation, and
 police notification, with logging for all alerts.
 
+
+Last updated: 2025-12-17
