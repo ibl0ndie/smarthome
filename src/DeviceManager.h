@@ -13,18 +13,21 @@ class Alarm;
 class SmokeDetector;
 class GasDetector;
 
-// REQ: DeviceManager for storing/managing all devices
-// Student Part: Device Management System
+/*
+ * DeviceManager
+ * - Acts as a REGISTRY: stores and retrieves devices
+ * - Acts as a FACADE: provides simple high-level operations
+ */
 class DeviceManager {
 public:
     DeviceManager();
     ~DeviceManager();
-    
-    // Device registration
+
+    // Registry: device management
     void addDevice(Device* device);
     void removeDevice(const std::string& name);
-    
-    // Device retrieval
+
+    // Registry: retrieval
     Device* getDevice(const std::string& name);
     Light* getLight(const std::string& name);
     TV* getTV(const std::string& name);
@@ -33,17 +36,32 @@ public:
     Alarm* getAlarm(const std::string& name);
     SmokeDetector* getSmokeDetector(const std::string& name);
     GasDetector* getGasDetector(const std::string& name);
-    
-    // List all devices
+
+    // Info
     void listAllDevices() const;
     std::vector<Device*> getAllDevices() const;
-    
+
+    // ======================
+    // Facade operations
+    // (MATCH YOUR REAL APIs)
+    // ======================
+
+    // Light
+    bool setLightBrightness(const std::string& name, int level); // 0-100
+    bool setLightFlashing(const std::string& name, bool flashing);
+
+    // Camera
+    bool cameraSimulateMotion(const std::string& name);
+    bool cameraDetectMotion(const std::string& name, bool &detected);
+
+    // Alarm
+    bool isAlarmTriggered(const std::string& name, bool &triggered);
+
 private:
     std::vector<Device*> devices_;
-    
-    // Helper to find device by name
+
+    // Helper
     Device* findDevice(const std::string& name) const;
 };
 
 #endif // DEVICEMANAGER_H
-

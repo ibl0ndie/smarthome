@@ -8,6 +8,7 @@ class SystemState;
 class ModeStrategy;
 class Observer;
 
+
 // REQ: MSHController - Singleton Pattern
 // Student Part: Singleton Pattern - Central Controller
 class MSHController {
