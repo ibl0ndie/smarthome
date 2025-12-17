@@ -392,22 +392,17 @@ void MenuFacade::option5_PowerOffDevice() {
     Device* dev = selectDeviceByType(type);
     
     if (dev) {
-        // Check if device should stay on (detectors/alarm)
+        // Check if device is critical safety (detectors/alarm)
         SmokeDetector* smoke = dynamic_cast<SmokeDetector*>(dev);
         GasDetector* gas = dynamic_cast<GasDetector*>(dev);
         Alarm* alarm = dynamic_cast<Alarm*>(dev);
-        
+
         if (smoke || gas || alarm) {
-            std::cout << "Warning: " << dev->getName() << " is a safety device and should remain powered on!" << std::endl;
-            std::cout << "Are you sure you want to power it off? (y/n): ";
-            char confirm;
-            std::cin >> confirm;
-            if (confirm != 'y' && confirm != 'Y') {
-                std::cout << "Operation cancelled." << std::endl;
-                return;
-            }
+            std::cout << "This device is critical safety; you cannot turn it off." << std::endl;
+            controller.log("Blocked power off for critical safety device: " + dev->getName());
+            return;
         }
-        
+
         dev->powerOff();
         std::cout << "Device powered off: " << dev->getName() << std::endl;
         std::cout << "Status: " << dev->getStatus() << std::endl;

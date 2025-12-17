@@ -1,8 +1,11 @@
 #include "GasDetector.h"
 #include <sstream>
+#include <iostream>
 
 GasDetector::GasDetector(const std::string& name) 
     : Device(name), gasDetected_(false) {
+    // Critical safety device: must start powered on
+    powered_ = true;
 }
 
 GasDetector::~GasDetector() {
@@ -14,7 +17,9 @@ void GasDetector::powerOn() {
 }
 
 void GasDetector::powerOff() {
-    powered_ = false;
+    // Critical safety device: cannot be turned off
+    // Inform user and keep device powered on
+    std::cout << "This device is critical safety; you cannot turn it off." << std::endl;
     gasDetected_ = false;
 }
 
@@ -31,10 +36,6 @@ std::string GasDetector::getStatus() const {
         oss << "OFF";
     }
     return oss.str();
-}
-
-bool GasDetector::detectGas() {
-    return gasDetected_;
 }
 
 void GasDetector::simulateGas() {

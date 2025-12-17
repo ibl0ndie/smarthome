@@ -1,8 +1,11 @@
 #include "SmokeDetector.h"
 #include <sstream>
+#include <iostream>
 
 SmokeDetector::SmokeDetector(const std::string& name) 
     : Device(name), smokeDetected_(false) {
+    // Critical safety device: must start powered on
+    powered_ = true;
 }
 
 SmokeDetector::~SmokeDetector() {
@@ -14,7 +17,9 @@ void SmokeDetector::powerOn() {
 }
 
 void SmokeDetector::powerOff() {
-    powered_ = false;
+    // Critical safety device: cannot be turned off
+    // Inform user and keep device powered on
+    std::cout << "This device is critical safety; you cannot turn it off." << std::endl;
     smokeDetected_ = false;
 }
 
@@ -31,10 +36,6 @@ std::string SmokeDetector::getStatus() const {
         oss << "OFF";
     }
     return oss.str();
-}
-
-bool SmokeDetector::detectSmoke() {
-    return smokeDetected_;
 }
 
 void SmokeDetector::simulateSmoke() {

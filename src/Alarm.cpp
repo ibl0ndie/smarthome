@@ -1,8 +1,11 @@
 #include "Alarm.h"
 #include <sstream>
+#include <iostream>
 
 Alarm::Alarm(const std::string& name) 
     : Device(name), triggered_(false) {
+    // Critical safety device: must start powered on
+    powered_ = true;
 }
 
 Alarm::~Alarm() {
@@ -13,7 +16,9 @@ void Alarm::powerOn() {
 }
 
 void Alarm::powerOff() {
-    powered_ = false;
+    // Critical safety device: cannot be turned off
+    // Inform user and keep device powered on
+    std::cout << "This device is critical safety; you cannot turn it off." << std::endl;
     triggered_ = false;
 }
 
