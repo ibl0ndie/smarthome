@@ -33,5 +33,5 @@ void SleepState::exit(MSHController* controller) {
 
 std::string SleepState::getName() const {
     return "Sleep";
-}
+}  
 
