@@ -14,4 +14,4 @@ void NormalState::exit(MSHController* controller) {
 std::string NormalState::getName() const {
     return "Normal";
 }
-
+ 

@@ -14,3 +14,4 @@ public:
 
 #endif // NORMALSTATE_H
 
+ 
