@@ -1,0 +1,3 @@
+/home/bl0ndie/Downloads/msh-project/msh-project/build/CMakeFiles/msh.dir
+/home/bl0ndie/Downloads/msh-project/msh-project/build/CMakeFiles/edit_cache.dir
+/home/bl0ndie/Downloads/msh-project/msh-project/build/CMakeFiles/rebuild_cache.dir
