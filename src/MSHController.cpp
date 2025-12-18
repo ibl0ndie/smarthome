@@ -310,6 +310,14 @@ void MSHController::printHomeStatus() {
     std::cout << std::endl;
     
     std::cout << "\n========================================" << std::endl;
+
+    // Detailed per-device status (includes brightness/volume/etc.)
+    std::cout << "\n[Devices Details]" << std::endl;
+    for (std::vector<Device*>::iterator it = devices.begin(); it != devices.end(); ++it) {
+        Device* dev = *it;
+        if (!dev) continue;
+        std::cout << "  - " << dev->getStatus() << std::endl;
+    }
     
     log("Home status displayed");
 }
