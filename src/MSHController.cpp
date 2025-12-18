@@ -32,11 +32,10 @@ MSHController::~MSHController() {
 
 
 MSHController& MSHController::getInstance() {
-    if (!instance_) {
-        instance_ = new MSHController();
-    }
-    return *instance_;
+    static MSHController instance;
+    return instance;
 }
+
 
 DeviceManager* MSHController::getDeviceManager() {
     return deviceManager_;
